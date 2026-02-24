@@ -477,8 +477,10 @@
         </section>
 
         <!-- Today indicator -->
-        <div class="today-fab" id="todayFab" style="display:none;">
-            <button><span class="material-symbols-rounded">near_me</span> Ir para Hoje</button>
+        <div class="fixed right-4 z-[90]" id="todayFab" style="display:none; bottom: calc(var(--bottom-nav-h) + 16px);">
+            <button class="w-12 h-12 rounded-full bg-primary text-white shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform" aria-label="Ir para Hoje">
+                <span class="material-symbols-rounded text-2xl">my_location</span>
+            </button>
         </div>
     </div> <!-- END APP -->
 

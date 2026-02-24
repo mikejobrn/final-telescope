@@ -1,7 +1,7 @@
 class MgBottomNav extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-        <div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-white/95 backdrop-blur-xl border-t border-slate-100 px-4 pt-2 pb-8 flex justify-between items-center z-[200]">
+        <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-slate-100 px-4 pt-2 pb-8 flex justify-between items-center z-[200]">
             <a class="bn-btn flex flex-col items-center gap-1 text-slate-400 cursor-pointer w-1/5" data-target="days">
                 <div class="p-2 transition-colors rounded-xl flex items-center justify-center">
                     <span class="material-symbols-rounded text-xl">calendar_today</span>

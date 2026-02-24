@@ -13,10 +13,19 @@ class MgDayCard extends HTMLElement {
 
         let noteHTML = '';
         if (note) {
-            noteHTML = `<div class="day-note">${note}</div>`;
+            noteHTML = `<div class="day-note text-slate-500 text-sm mb-4">${note}</div>`;
         }
 
-        const isPastDay = this.hasAttribute('is-past');
+        const dateIso = this.getAttribute('date-iso');
+        let isPastDay = this.hasAttribute('is-past');
+        if (dateIso) {
+            const todayD = new Date();
+            const cardD = new Date(dateIso + 'T00:00:00');
+            if (todayD.getTime() > cardD.getTime() + 86400000) {
+                isPastDay = true;
+            }
+        }
+
         const providedTheme = this.getAttribute('theme');
         const num = parseInt(dayNum.replace(/[^0-9]/g, ''), 10) || 1;
 
@@ -62,53 +71,59 @@ class MgDayCard extends HTMLElement {
             innerBadgeTextClass = themeTextColor;
         }
 
-        let containerOpen = "bg-white rounded-2xl p-6 shadow-xl border border-primary/5 relative overflow-hidden transition-opacity mb-5";
-        let containerClosed = "bg-white rounded-xl p-5 shadow-sm border border-slate-50 flex justify-between items-center opacity-80 cursor-pointer transition-opacity mb-5 day-header"; // Added day-header for app.js compat
-
         if (isPastDay) {
             themeTextColor = "text-slate-500";
             themeTextClass = "text-slate-500";
             activeBarColor = "bg-slate-400";
             closedBadgeColor = "bg-slate-200";
             innerBadgeTextClass = "text-slate-500";
-            containerOpen += " opacity-60 grayscale";
-            containerClosed += " opacity-60 grayscale";
         }
 
+        const baseCardClasses = "day-card group bg-white border border-slate-50 relative overflow-hidden transition-all duration-500 mb-5";
+        const stateClasses = isPastDay ? "opacity-60 grayscale" : "shadow-sm hover:shadow-md";
+
         this.innerHTML = `
-      <div class="day-card ${isExpanded ? 'open' : ''}" id="card-${cardId}">
+      <div class="${baseCardClasses} ${stateClasses} ${isExpanded ? 'open rounded-2xl shadow-xl' : 'rounded-xl'}" id="card-${cardId}">
         
-        <!-- OPEN STATE -->
-        <div class="day-view-open ${isExpanded ? 'block' : 'hidden'} ${containerOpen}">
-            <div class="absolute top-0 left-0 w-2 h-full ${activeBarColor}"></div>
-            <div class="day-header-open flex justify-between items-start mb-8 cursor-pointer w-full day-header" aria-expanded="true">
-                <div>
-                    <h4 class="${themeTextClass} text-xs uppercase tracking-widest mb-1">Dia ${dayNum}</h4>
-                    <h3 class="text-slate-900 text-2xl font-bold">${date}</h3>
-                    <p class="text-slate-500 text-sm font-medium mt-1">${desc}</p>
+        <!-- Animated Vertical Bar -->
+        <div class="absolute top-0 left-0 w-2 h-full ${activeBarColor} transition-transform ease-in-out duration-500 origin-left scale-x-0 group-[.open]:scale-x-100 opacity-0 group-[.open]:opacity-100 z-0"></div>
+
+        <!-- Header -->
+        <div class="day-header relative p-5 group-[.open]:p-6 transition-all duration-500 cursor-pointer z-10 flex justify-between items-start">
+            
+            <div class="relative w-full h-[40px] group-[.open]:h-[76px] transition-all duration-500">
+                
+                <!-- Circular Badge -->
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 group-[.open]:top-0 group-[.open]:translate-y-0 w-10 h-10 rounded-full ${closedBadgeColor} border border-transparent transition-all duration-500 opacity-100 scale-100 group-[.open]:opacity-0 group-[.open]:scale-50 pointer-events-none flex items-center justify-center">
+                    <span class="${innerBadgeTextClass} font-bold text-xs">D${dayNum}</span>
                 </div>
-                <span class="material-symbols-rounded text-slate-400">expand_less</span>
+
+                <!-- "Dia N" Text (Open Only) -->
+                <h4 class="absolute left-[2px] top-0 ${themeTextClass} text-xs uppercase tracking-widest opacity-0 transform -translate-y-2 group-[.open]:opacity-100 group-[.open]:translate-y-0 transition-opacity transition-transform duration-500 pointer-events-none m-0">Dia ${dayNum}</h4>
+                
+                <!-- Text Block (Title / Desc) -->
+                <div class="absolute left-[56px] top-1/2 -translate-y-1/2 group-[.open]:top-[24px] group-[.open]:translate-y-0 group-[.open]:left-[2px] transition-all duration-500">
+                    <h3 class="${isPastDay ? 'text-slate-500' : 'text-slate-900'} text-base group-[.open]:text-2xl font-bold transition-all duration-500 m-0 leading-tight origin-left">${date}</h3>
+                    <p class="text-slate-500 text-xs group-[.open]:text-sm font-medium transition-all duration-500 m-0 mt-0 group-[.open]:mt-1 leading-tight ${isPastDay ? 'grayscale' : ''}">${desc}</p>
+                </div>
+
             </div>
 
-            <div class="day-body block mt-4">
-              ${noteHTML}
-              <div class="space-y-8 relative ml-2 mt-4 pb-2">
-                <div class="timeline-line absolute left-[7px] top-4 bottom-4 w-[2px] bg-slate-100"></div>
-                ${activitiesHTML}
-              </div>
-            </div>
+            <!-- Expand Icon -->
+            <span class="material-symbols-rounded text-slate-300 transition-transform duration-500 group-[.open]:rotate-180 flex-shrink-0 mt-2 group-[.open]:mt-0">expand_more</span>
         </div>
 
-        <!-- CLOSED STATE -->
-        <div class="day-view-closed ${isExpanded ? 'hidden' : 'flex'} ${containerClosed}" aria-expanded="false">
-            <div class="flex items-center gap-4">
-                <div class="size-10 rounded-full ${closedBadgeColor} flex items-center justify-center font-bold text-xs"><span class="${innerBadgeTextClass}">D${dayNum}</span></div>
-                <div>
-                    <h3 class="${isPastDay ? 'text-slate-500' : 'text-slate-900'} text-base font-bold">${date}</h3>
-                    <p class="text-slate-500 text-xs font-medium">${desc}</p>
+        <!-- Expandable Body -->
+        <div class="day-body grid transition-all duration-500 grid-rows-[0fr] group-[.open]:grid-rows-[1fr] opacity-0 group-[.open]:opacity-100 pointer-events-none group-[.open]:pointer-events-auto">
+            <div class="overflow-hidden">
+                <div class="px-6 pb-6 pt-0">
+                    ${noteHTML}
+                    <div class="space-y-8 relative ml-2 mt-4 pb-2">
+                        <div class="timeline-line absolute left-[7px] top-[14px] bottom-0 w-[2px] bg-slate-100"></div>
+                        ${activitiesHTML}
+                    </div>
                 </div>
             </div>
-            <span class="material-symbols-rounded text-slate-300">expand_more</span>
         </div>
       </div>
     `;
@@ -121,33 +136,25 @@ class MgDayCard extends HTMLElement {
 
                 document.querySelectorAll('mg-day-card .day-card.open').forEach(c => {
                     if (c !== card) {
-                        c.classList.remove('open');
-                        const cOpenView = c.querySelector('.day-view-open');
-                        const cClosedView = c.querySelector('.day-view-closed');
-                        if (cOpenView) { cOpenView.classList.remove('block'); cOpenView.classList.add('hidden'); }
-                        if (cClosedView) { cClosedView.classList.remove('hidden'); cClosedView.classList.add('flex'); }
+                        c.classList.remove('open', 'shadow-xl', 'rounded-2xl');
+                        c.classList.add('rounded-xl', 'shadow-sm');
                     }
                 });
 
-                card.classList.toggle('open', !isOpen);
-                const openView = card.querySelector('.day-view-open');
-                const closedView = card.querySelector('.day-view-closed');
-
                 if (!isOpen) {
-                    if (openView) { openView.classList.remove('hidden'); openView.classList.add('block'); }
-                    if (closedView) { closedView.classList.remove('flex'); closedView.classList.add('hidden'); }
+                    card.classList.add('open', 'shadow-xl', 'rounded-2xl');
+                    card.classList.remove('rounded-xl', 'shadow-sm');
                     setTimeout(() => {
                         card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 150);
+                    }, 500);
                 } else {
-                    if (openView) { openView.classList.remove('block'); openView.classList.add('hidden'); }
-                    if (closedView) { closedView.classList.remove('hidden'); closedView.classList.add('flex'); }
+                    card.classList.remove('open', 'shadow-xl', 'rounded-2xl');
+                    card.classList.add('rounded-xl', 'shadow-sm');
                 }
             });
         };
 
-        attachToggle(this.querySelector('.day-header-open'));
-        attachToggle(this.querySelector('.day-view-closed'));
+        attachToggle(this.querySelector('.day-header'));
     }
 }
 

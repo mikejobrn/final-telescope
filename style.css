@@ -249,78 +249,11 @@ mg-activity {
   font-weight: 500;
 }
 
-/* ===== TODAY FAB ===== */
-.today-fab {
-  /* Position handled by Tailwind classes in HTML wrapper */
-}
+/* ===== TODAY FAB ESTILOS SUBSTITUIDOS POR TAILWIND ===== */
 
-/* Animations for Day Card */
-@keyframes slideDownAlpha {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
+/* Legacy animations removed for Tailwind dynamic transitions */
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes slideRight {
-  from {
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-
-  to {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.day-card.open .day-view-open {
-  animation: slideDownAlpha 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.day-card.open .day-view-open .timeline-line {
-  animation: slideRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.day-card.open .day-body {
-  animation: fadeIn 0.4s ease-out forwards;
-}
-
-.today-fab button {
-  padding: 10px 16px;
-  border-radius: 30px;
-  border: none;
-  background: var(--accent);
-  color: #fff;
-  font-family: inherit;
-  font-size: .85rem;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 8px 24px var(--accent-glow);
-  transition: transform .2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.today-fab button:active {
-  transform: scale(.9)
-}
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
@@ -336,14 +269,6 @@ mg-activity {
 }
 
 /* ===== RESPONSIVE ===== */
-@media(min-width:600px) {
-  body {
-    max-width: 480px;
-    margin: 0 auto;
-    border-left: 2px solid var(--border);
-    border-right: 2px solid var(--border);
-  }
-}
 
 /* ===== LODGE CARDS ===== */
 .lodge-card {
