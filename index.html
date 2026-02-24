@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Roteiro MG 2026 — Mike & Alan</title>
+    <meta name="description" content="Roteiro de viagem para Minas Gerais, 1-8 de Março 2026">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Google Material Symbols Rounded -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app" class="has-bottom-nav">
+        <!-- Header -->
+        <mg-hero title="Roteiro MG 2026" subtitle="1–8 de Março">
+        </mg-hero>
+
+        <!-- BOTTOM NAV -->
+        <mg-bottom-nav></mg-bottom-nav>
+
+        <!-- DAYS SECTION -->
+        <main class="section" id="days">
+            <mg-legend></mg-legend>
+
+            <h2 class="section-title" style="margin-top: 10px;">Testes (Atual)</h2>
+
+            <!-- Mock Day 1 -->
+            <mg-day-card id="mock1" day-num="T1" date="Segunda, 23/02" date-iso="2026-02-23"
+                desc="Teste de dia no passado">
+                <mg-activity time="10:00" desc="Atividade Passada" sub-desc="Como era pra ficar"></mg-activity>
+                <mg-activity time="12:00" desc="Almoço" sub-desc="Test"></mg-activity>
+            </mg-day-card>
+
+            <!-- Mock Day 2 (TODAY based on 2026-02-24) -->
+            <mg-day-card id="mock2" day-num="T2" date="Terça, 24/02" date-iso="2026-02-24"
+                desc="Teste de dia HOJE (Ativo)">
+                <mg-activity time="00:10" desc="Madrugada 1" tags="🟡"></mg-activity>
+                <mg-activity time="00:15" desc="Madrugada 2" tags="🔒"></mg-activity>
+                <mg-activity time="08:00" desc="Café da manhã" tags="🟡"></mg-activity>
+                <mg-activity time="10:00" desc="Passeio" sub-desc="Já passou hoje" tags="🔒"></mg-activity>
+                <mg-activity time="14:00" desc="Almoço Tarde" sub-desc="Isso tá ativo se a hora for perto"
+                    tags="⏰, 🟡"></mg-activity>
+                <mg-activity time="20:00" desc="Jantar" sub-desc="Isso tá no futuro hoje"></mg-activity>
+            </mg-day-card>
+
+            <h2 class="section-title">Itinerário</h2>
+
+            <mg-day-card id="day1" day-num="1" date="Domingo, 01/03" date-iso="2026-03-01" desc="Natal → BH" expanded>
+                <mg-activity time="01:15" desc="Sair de casa" sub-desc="Check-in e bagagens"></mg-activity>
+                <mg-activity time="03:00" desc="Voo Natal → Confins" sub-desc="G3 1234 • Latam"
+                    tags="🔒,⏰"></mg-activity>
+                <mg-activity time="05:45" desc="Chegada em Confins" sub-desc="Retirar carro alugado"></mg-activity>
+                <mg-activity time="~07:15" desc="Hotel (Savassi/Lourdes)"
+                    sub-desc="Quarto pronto (reserva desde 28/02)"></mg-activity>
+                <mg-activity time="07:30–11:00" desc="Dormir"
+                    sub-desc="Prioridade, especialmente pra Alan"></mg-activity>
+                <mg-activity time="11:30" desc="Feira Hippie" sub-desc="Av. Afonso Pena (dom 8h–14h, única chance)"
+                    tags="🟡,⏰,🌧️"></mg-activity>
+                <mg-activity time="14:00" desc="Descanso no hotel"></mg-activity>
+                <mg-activity time="16:00" desc="Belô Pães de Queijo" sub-desc="Café da tarde obrigatório em Lourdes"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="18:30" desc="Jantar no Bolão (Santa Tereza)"
+                    sub-desc="Pedir o Rochedão. Alt: Maria das Tranças / Almanaque Bar" tags="🟡"></mg-activity>
+            </mg-day-card>
+
+            <mg-day-card id="day2" day-num="2" date="Segunda, 02/03" date-iso="2026-03-02"
+                desc="BH — Mercado, Escape, IMAX" note="Museus e parques fecham às segundas.">
+                <mg-activity time="09:00" desc="Mercado Central"
+                    sub-desc="Sabiá, Rei do Pastel, Xeque Mate, Casa Cheia (seg 7h–18h)" tags="🔒"></mg-activity>
+                <mg-activity time="11:30" desc="Dona Lucinha (Savassi)" sub-desc="Buffet mineiro maravilhoso"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="13:00" desc="Uaiê Sorvetes (Savassi)" sub-desc="Jabuticaba, queijo com goiabada"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="14:00" desc="BH Escape (Santo Antônio)" sub-desc="Sala a definir"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="16:00" desc="IMAX Cineart" sub-desc="Boulevard Shopping" tags="🔒"></mg-activity>
+                <mg-activity time="18:30" desc="Rua Sapucaí (Floresta)" sub-desc="Murais do CURA, food trucks"
+                    tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="20:30" desc="Cervejarias artesanais" sub-desc="Rua Pernambuco, Savassi"
+                    tags="🟡"></mg-activity>
+            </mg-day-card>
+
+            <mg-day-card id="day3" day-num="3" date="Terça, 03/03" date-iso="2026-03-03"
+                desc="BH — Pampulha, Mangabeiras" note="Parques reabrem após segunda.">
+                <mg-activity time="08:30" desc="Zoológico e Aquário" sub-desc="Pampulha, não aceita crédito"
+                    tags="🔒,🌧️"></mg-activity>
+                <mg-activity time="11:00" desc="Orla da Pampulha" sub-desc="Igrejinha + Casa Kubitschek"
+                    tags="🔒,🌧️"></mg-activity>
+                <mg-activity time="12:30" desc="Almoço no Xapuri" sub-desc="Reservar! Tutu, tropeiro, frango com quiabo"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="14:30" desc="Parque das Mangabeiras" sub-desc="Ter–dom 8h–17h, gratuito"
+                    tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="16:30" desc="Praça do Papa" sub-desc="Mirante da Rua Amendoim"
+                    tags="🔒,🌧️"></mg-activity>
+                <mg-activity time="20:00" desc="Jantar no O 31 Restaurante"
+                    sub-desc="Comida mineira autoral, boa carta de drinks" tags="🔒"></mg-activity>
+            </mg-day-card>
+
+            <mg-day-card id="day4" day-num="4" date="Quarta, 04/03" date-iso="2026-03-04"
+                desc="BH — Centro, Museus, Liberdade">
+                <mg-activity time="08:30" desc="Café Palhares" sub-desc="Pedir o KAOL" tags="🔒"></mg-activity>
+                <mg-activity time="09:45" desc="MUMO — Museu da Moda" sub-desc="Gratuito" tags="🟡"></mg-activity>
+                <mg-activity time="11:00" desc="MAO — Museu de Artes" sub-desc="Praça da Estação, gratuito"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="12:30" desc="Metrô BH" sub-desc="Estação Central → Savassi (~10 min)"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="12:45" desc="Almoço na Savassi/Centro" sub-desc="Alt: Cozinha Aberta"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="14:00" desc="Circuito Praça da Liberdade"
+                    sub-desc="CCBB BH, MM Gerdau, Espaço do Conhecimento UFMG" tags="🔒"></mg-activity>
+                <mg-activity time="16:30" desc="Museu PUC Minas" sub-desc="Coração Eucarístico" tags="🔒"></mg-activity>
+                <mg-activity time="18:00" desc="Mercado Novo" sub-desc="Cozinha Tupis, Bar Viela (2º e 3º andares)"
+                    tags="🔒"></mg-activity>
+            </mg-day-card>
+
+            <mg-day-card id="day5" day-num="5" date="Quinta, 05/03" date-iso="2026-03-05"
+                desc="BH → Inhotim → Ouro Preto">
+                <mg-activity time="08:00" desc="Check-out BH"
+                    sub-desc="Malas no carro → Brumadinho (~1h)"></mg-activity>
+                <mg-activity time="09:30" desc="Inhotim e arredores" sub-desc="Dia inteiro (qua–dom 9h30–17h30)"
+                    tags="🔒,⏰,🌧️"></mg-activity>
+                <mg-activity time="16:30" desc="Saída para Ouro Preto" sub-desc="~2h" tags="🌧️"></mg-activity>
+                <mg-activity time="~18:30" desc="Check-in" sub-desc="Chegada em Ouro Preto"></mg-activity>
+                <mg-activity time="19:00" desc="Praça Tiradentes" sub-desc="Pôr do sol" tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="20:30" desc="O Passo Pizza Jazz" sub-desc="Pizza + jazz ao vivo"
+                    tags="🟡"></mg-activity>
+            </mg-day-card>
+
+            <mg-day-card id="day6" day-num="6" date="Sexta, 06/03" date-iso="2026-03-06"
+                desc="Ouro Preto Histórica + Mariana" note="Duas noites em OP = sem check-out, sem correria.">
+                <mg-activity time="09:00" desc="Igreja S. Francisco de Assis"
+                    sub-desc="Feirinha de Pedra-Sabão no Largo do Coimbra" tags="🔒"></mg-activity>
+                <mg-activity time="10:30" desc="Basílica N. S. do Pilar" sub-desc="Museu de Arte Sacra"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="12:00" desc="Museu da Inconfidência" sub-desc="Praça Tiradentes"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="13:30" desc="Almoço longo em Ouro Preto"
+                    sub-desc="Sugestões: Bene da Flauta / Conto de Reis" tags="🟡"></mg-activity>
+                <mg-activity time="15:00" desc="Mina da Passagem" sub-desc="Diário 9h–16h, R$250/pessoa, SÓ DINHEIRO"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="16:30" desc="Centro Histórico de Mariana" sub-desc="~10 min da Mina"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="18:30" desc="Mirante das Lages" sub-desc="Vista panorâmica de OP"
+                    tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="20:00" desc="Jantar em Ouro Preto"
+                    sub-desc="Sugestões: Escadabaixo / Casa do Ouvidor" tags="🟡"></mg-activity>
+            </mg-day-card>
+
+            <mg-day-card id="day7" day-num="7" date="Sábado, 07/03" date-iso="2026-03-07"
+                desc="OP → Tiradentes, Maria Fumaça">
+                <mg-activity time="08:00" desc="Check-out Ouro Preto" sub-desc="Malas no carro"></mg-activity>
+                <mg-activity time="~10:30" desc="Chegada em Tiradentes" sub-desc="Check-in na pousada"></mg-activity>
+                <mg-activity time="11:30" desc="Almoço em Tiradentes"
+                    sub-desc="Sugestões: Viradas do Largo / Pau de Canela" tags="🟡"></mg-activity>
+                <mg-activity time="~14:30" desc="Caminhada / Deslocamento"
+                    sub-desc="Até a Estação de Tiradentes"></mg-activity>
+                <mg-activity time="15:00" desc="Maria Fumaça" sub-desc="Tiradentes → SJDR" tags="🔒,⏰"></mg-activity>
+                <mg-activity time="16:00" desc="Passeio em SJDR" sub-desc="Centro histórico, Igreja de São Francisco"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="18:00" desc="Uber/táxi" sub-desc="Volta a Tiradentes (~20 min, ~R$40)"></mg-activity>
+                <mg-activity time="20:30" desc="Jantar no Tragaluz" sub-desc="Goiabada frita, pintada. Reservar!"
+                    tags="🟡"></mg-activity>
+            </mg-day-card>
+
+            <mg-day-card id="day8" day-num="8" date="Domingo, 08/03" date-iso="2026-03-08"
+                desc="Bichinho → Confins → Natal">
+                <mg-activity time="08:30" desc="Check-out Tiradentes" sub-desc="Malas no carro"></mg-activity>
+                <mg-activity time="09:00" desc="Vilarejo de Bichinho" sub-desc="7 km. Artesanato, ateliês"
+                    tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="11:15" desc="Almoço em Bichinho" sub-desc="Sugestão: O Pasto — comida caseira"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="12:30" desc="Últimas compras" sub-desc="No centro de Tiradentes"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="15:00" desc="Saída para Confins" sub-desc="~4h de estrada" tags="🌧️"></mg-activity>
+                <mg-activity time="~19:00" desc="Devolução do carro" sub-desc="Em Confins (CNF)"></mg-activity>
+                <mg-activity time="23:35" desc="Voo Confins → Natal" sub-desc="Chegada ~02:00 do dia 09/03"
+                    tags="🔒,⏰"></mg-activity>
+            </mg-day-card>
+        </main>
+
+        <!-- CHECKINS SECTION -->
+        <section class="section hidden" id="checkins">
+            <h2 class="section-title"><span class="material-symbols-rounded"
+                    style="vertical-align: bottom; font-size: 1.2em; color: var(--accent);">bed</span> Hospedagem</h2>
+            <div class="info-card">
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Local</th>
+                            <th>Check-in</th>
+                            <th>Check-out</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>BH</b> (Savassi/Lourdes)</td>
+                            <td>01/03 ~07:15</td>
+                            <td>05/03 08:00</td>
+                        </tr>
+                        <tr>
+                            <td><b>Ouro Preto</b></td>
+                            <td>05/03 ~18:30</td>
+                            <td>07/03 08:00</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tiradentes</b></td>
+                            <td>07/03 ~10:30</td>
+                            <td>08/03 08:30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TASKS SECTION -->
+        <section class="section hidden" id="tasks">
+            <h2 class="section-title"><span class="material-symbols-rounded"
+                    style="vertical-align: bottom; font-size: 1.2em; color: var(--accent);">assignment_turned_in</span>
+                A Fazer</h2>
+            <div class="info-card">
+                <label class="todo"><input type="checkbox"><span>Reservar <b>BH Escape</b> — escolher sala <em>(02/03 à
+                            tarde, @bhescape)</em></span></label>
+                <label class="todo"><input type="checkbox"><span>Reservar <b>Xapuri</b> — almoço 03/03</span></label>
+                <label class="todo"><input type="checkbox"><span>Reservar <b>Tragaluz</b> — jantar 07/03</span></label>
+                <label class="todo"><input type="checkbox"><span>Verificar <b>filme IMAX</b> — sessão
+                        02/03</span></label>
+                <label class="todo"><input type="checkbox"><span>Verificar <b>Maria Fumaça</b> — plano é Tiradentes→SJDR
+                        15h</span></label>
+            </div>
+        </section>
+
+        <!-- BUDGET SECTION -->
+        <section class="section hidden" id="budget">
+            <h2 class="section-title"><span class="material-symbols-rounded"
+                    style="vertical-align: bottom; font-size: 1.2em; color: var(--accent);">savings</span> Custos
+                (Estimativa)</h2>
+            <div class="info-card">
+                <h3>⚠️ Dinheiro vivo obrigatório</h3>
+                <ul>
+                    <li><b>Mina da Passagem:</b> R$250/pessoa (somente espécie)</li>
+                    <li><b>Zoo BH:</b> não aceita crédito (dinheiro, PIX ou débito)</li>
+                    <li><b>Igrejas/museus em OP:</b> levar trocado (R$ 10 a R$ 20)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PACKING SECTION -->
+        <section class="section hidden" id="packing">
+            <h2 class="section-title"><span class="material-symbols-rounded"
+                    style="vertical-align: bottom; font-size: 1.2em; color: var(--accent);">luggage</span> O que levar
+                (Primavera/Verão)</h2>
+            <div class="info-card">
+                <p class="climate-note">Março em MG = fim do verão. Calor de dia (25–32°C), noites frescas em OP e
+                    Tiradentes (15–20°C).</p>
+                <h3>👕 Roupas</h3>
+                <ul>
+                    <li>4 camisetas leves (dry-fit ou algodão)</li>
+                    <li>2 bermudas confortáveis</li>
+                    <li>1 calça comprida leve (igrejas + noites frias)</li>
+                    <li>1 moletom ou jaqueta leve (essencial para OP à noite)</li>
+                    <li>1 capa de chuva ou jaqueta impermeável</li>
+                    <li>Cuecas e meias (mínimo 1 por dia)</li>
+                    <li>1 roupa mais arrumada para jantares charmosos</li>
+                </ul>
+                <h3>👟 Calçados</h3>
+                <ul>
+                    <li><b>Tênis confortável para caminhada</b> — indispensável (ruas de OP são de pedra irregular)</li>
+                    <li>1 chinelo para hotel</li>
+                    <li>Evitar sapatênis e solados lisos</li>
+                </ul>
+                <h3>🎒 Acessórios</h3>
+                <ul>
+                    <li>Protetor solar FPS 50+</li>
+                    <li>Repelente de insetos (crucial em Inhotim)</li>
+                    <li>Chapéu ou boné</li>
+                    <li>Óculos de sol</li>
+                    <li>Garrafa d'água reutilizável</li>
+                    <li>Mochila pequena / daypack</li>
+                    <li>Guarda-chuva leve</li>
+                    <li>Carregador portátil (power bank)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FOOD SECTION -->
+        <section class="section hidden" id="food">
+            <h2 class="section-title"><span class="material-symbols-rounded"
+                    style="vertical-align: bottom; font-size: 1.2em; color: var(--accent);">restaurant</span>
+                Gastronomia</h2>
+            <div class="info-card">
+                <h3>Comidas que não podem faltar</h3>
+                <ul>
+                    <li><b>Pão de queijo</b> recheado (com pernil)</li>
+                    <li><b>Feijão tropeiro</b> — feijão com farinha, linguiça, torresmo, couve</li>
+                    <li><b>Tutu à mineira</b> — creme de feijão com farinha</li>
+                    <li><b>Frango com quiabo</b> — clássico no Xapuri</li>
+                    <li><b>Broa de fubá</b> — com queijo, para o café</li>
+                    <li><b>Queijos</b> artesanais da Canastra</li>
+                    <li><b>Goiabada frita</b> ou Romeu e Julieta</li>
+                    <li><b>Cachaça mineira</b> — no Mercado Central</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Today indicator -->
+        <div class="today-fab" id="todayFab" style="display:none;">
+            <button><span class="material-symbols-rounded">near_me</span> Ir para Hoje</button>
+        </div>
+    </div> <!-- END APP -->
+
+    <script src="app.js"></script>
+</body>
+
+</html>
