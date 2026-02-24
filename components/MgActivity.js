@@ -5,12 +5,40 @@ class MgActivity extends HTMLElement {
 
     connectedCallback() {
         // Wait briefly for parent attributes to resolve if newly inserted
-        setTimeout(() => this.render(), 0);
+        setTimeout(() => {
+            this.render();
+            this._startRealtimeTimer();
+        }, 0);
+    }
+
+    disconnectedCallback() {
+        this._clearRealtimeTimer();
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue !== newValue) {
             this.render();
+            this._clearRealtimeTimer();
+            this._startRealtimeTimer();
+        }
+    }
+
+    _startRealtimeTimer() {
+        if (this.hasAttribute('is-active')) {
+            const bubble = this.querySelector('.current-time-bubble');
+            if (!bubble) return;
+            this._timerId = setInterval(() => {
+                const now = new Date();
+                const formattedTime = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false });
+                bubble.textContent = formattedTime + ' Agora';
+            }, 1000);
+        }
+    }
+
+    _clearRealtimeTimer() {
+        if (this._timerId) {
+            clearInterval(this._timerId);
+            this._timerId = null;
         }
     }
 
@@ -79,7 +107,7 @@ class MgActivity extends HTMLElement {
             contentObj = `
             <div class="relative h-2 -ml-2 mb-8 mt-2">
                 <div class="absolute left-[-4px] right-[-20px] h-[2px] ${themeBgColorObj} z-20"></div>
-                <div class="absolute left-1/2 -translate-x-1/2 -top-6 ${themeBgColorObj} text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm z-30">
+                <div class="absolute left-1/2 -translate-x-1/2 -top-6 ${themeBgColorObj} text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm z-30 current-time-bubble">
                     ${formattedTime} Agora
                 </div>
             </div>

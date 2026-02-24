@@ -72,10 +72,31 @@
             <!-- Test Day 2: Today/Active -->
             <mg-day-card id="day-t2" day-num="T2" date="Terça, 24/02" date-iso="2026-02-24" desc="Mock Hoje"
                 theme="coral" expanded>
-                <mg-activity time="08:00" desc="Café da Manhã"></mg-activity>
-                <mg-activity time="09:30" desc="Passeio Matinal Teste"></mg-activity>
-                <mg-activity time="14:00" desc="Almoço Teste"></mg-activity>
-                <mg-activity time="18:30" desc="Jantar Teste"></mg-activity>
+                <mg-activity time="07:30" desc="Acordar cedo" sub-desc="Preparar as malas para o dia"></mg-activity>
+                <mg-activity time="08:00" desc="Café da Manhã" sub-desc="Café, pão de queijo e suco"></mg-activity>
+                <mg-activity time="09:30" desc="Passeio Matinal Teste" sub-desc="Caminhada no parque" tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="11:00" desc="Visita ao Museu" sub-desc="Exposição temporária" tags="🔒"></mg-activity>
+                <mg-activity time="12:30" desc="Almoço no Mercado" sub-desc="Pratos típicos regionais" tags="🟡"></mg-activity>
+                <mg-activity time="14:00" desc="Almoço Teste" sub-desc="Restaurante local"></mg-activity>
+                <mg-activity time="15:30" desc="Tarde Livre" sub-desc="Explorar o bairro"></mg-activity>
+                <mg-activity time="17:00" desc="Happy Hour" sub-desc="Bar na esquina" tags="🟡"></mg-activity>
+                <mg-activity time="18:30" desc="Jantar Teste" sub-desc="Jantar com o grupo"></mg-activity>
+                <mg-activity time="20:30" desc="Passeio Noturno" sub-desc="Praça central iluminada" tags="🟡,🌧️"></mg-activity>
+            </mg-day-card>
+
+            <!-- Test Day 3: Tomorrow -->
+            <mg-day-card id="day-t3" day-num="T3" date="Quarta, 25/02" date-iso="2026-02-25" desc="Mock Amanhã"
+                theme="mint">
+                <mg-activity time="08:00" desc="Café da Manhã Especial" sub-desc="Buffet completo no hotel"></mg-activity>
+                <mg-activity time="09:00" desc="Check-out do Hotel" sub-desc="Guardar malas na recepção"></mg-activity>
+                <mg-activity time="10:00" desc="Tour pela Cidade" sub-desc="Roteiro histórico guiado" tags="🔒,⏰"></mg-activity>
+                <mg-activity time="12:00" desc="Almoço no Centro" sub-desc="Restaurante recomendado" tags="🟡"></mg-activity>
+                <mg-activity time="13:30" desc="Sobremesa e Café" sub-desc="Sorveteria artesanal" tags="🟡"></mg-activity>
+                <mg-activity time="14:30" desc="Visita ao Mercado" sub-desc="Artesanato e lembranças" tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="16:00" desc="Tempo Livre" sub-desc="Compras ou descanso"></mg-activity>
+                <mg-activity time="17:30" desc="Pôr do Sol no Mirante" sub-desc="Vista panorâmica da cidade" tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="19:00" desc="Jantar de Despedida" sub-desc="Restaurante típico — reservar!" tags="🔒"></mg-activity>
+                <mg-activity time="21:00" desc="Saída para o Aeroporto" sub-desc="~2h de trajeto" tags="⏰"></mg-activity>
             </mg-day-card>
 
             <!-- Itinerary Start -->
@@ -479,7 +500,7 @@
         </section>
 
         <!-- Today indicator -->
-        <div class="fixed right-4 md:right-8 lg:right-12 z-[90]" id="todayFab"
+        <div class="fixed right-4 md:right-8 lg:right-12 z-[210]" id="todayFab"
             style="display:none; bottom: calc(var(--bottom-nav-h) + 16px);">
             <button
                 class="h-12 px-5 rounded-full bg-slate-800 text-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex items-center justify-center gap-2 hover:bg-slate-700 hover:scale-105 active:scale-95 transition-all outline-none focus:ring-4 focus:ring-slate-800/20"
