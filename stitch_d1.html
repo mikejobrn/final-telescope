@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#fdfcf9",
+                        "coral": "#ff7e67",
+                        "mint": "#50c878",
+                        "sunny": "#ffcc33",
+                        "sky-glow": "#e0f2fe",
+                        "card-bg": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-rounded {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background-light text-slate-900 font-display">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-background-light shadow-2xl overflow-x-hidden pb-28">
+<div class="flex items-center bg-white/80 backdrop-blur-md sticky top-0 z-50 p-4 justify-between border-b border-primary/10">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-rounded">arrow_back_ios_new</span>
+</div>
+<h2 class="text-slate-900 text-lg font-bold leading-tight tracking-tight flex-1 text-center">Hospedagem</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 items-center justify-center rounded-full bg-slate-100 text-slate-600">
+<span class="material-symbols-rounded">more_horiz</span>
+</button>
+</div>
+</div>
+<div class="p-4">
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-sunny via-primary to-primary/80 p-5 text-white shadow-lg shadow-primary/20">
+<div class="flex flex-col gap-2">
+<div class="flex">
+<span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold border border-white/30 uppercase tracking-wider">
+                            🇧🇷 Minas Gerais
+                        </span>
+</div>
+<h1 class="text-2xl font-bold leading-none tracking-tight">Roteiro MG 2026</h1>
+<p class="text-xs font-medium opacity-90 flex items-center gap-1">
+<span class="material-symbols-rounded text-xs">group</span> Mike &amp; Alan
+                        <span class="mx-1">•</span>
+<span class="material-symbols-rounded text-xs">calendar_month</span> 1–8 de Março
+                    </p>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex items-center gap-3">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-rounded text-primary">bed</span>
+</div>
+<h2 class="text-xl font-bold text-slate-800 tracking-tight">Hospedagem</h2>
+</div>
+<div class="px-4 space-y-6">
+<div class="bg-white rounded-[2.5rem] p-6 card-shadow border border-slate-100 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-sky-glow/50 rounded-full -mr-16 -mt-16 z-0"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-1 block">Belo Horizonte</span>
+<h3 class="text-xl font-bold text-slate-800">Hotel Ville Celestine</h3>
+</div>
+<div class="bg-sky-glow text-primary px-3 py-1 rounded-full text-xs font-bold">
+                            01–03 Mar
+                        </div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-5">
+<div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+<p class="text-[9px] text-slate-400 font-bold uppercase mb-1">Check-in</p>
+<p class="text-sm font-bold text-slate-700">14:00</p>
+</div>
+<div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+<p class="text-[9px] text-slate-400 font-bold uppercase mb-1">Check-out</p>
+<p class="text-sm font-bold text-slate-700">12:00</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-2">
+<span class="material-symbols-rounded text-slate-400 text-lg">map</span>
+<p class="text-xs text-slate-500 leading-relaxed">R. Guaicuí, 533 - Luxemburgo, Belo Horizonte - MG</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-50">
+<a class="flex items-center gap-2 text-primary font-bold text-xs bg-primary/5 px-4 py-2 rounded-full" href="#">
+<span class="material-symbols-rounded text-sm">link</span>
+                                Voucher de Reserva
+                            </a>
+<div class="flex -space-x-2">
+<div class="size-7 rounded-full border-2 border-white bg-coral flex items-center justify-center text-[10px] text-white font-bold">M</div>
+<div class="size-7 rounded-full border-2 border-white bg-primary flex items-center justify-center text-[10px] text-white font-bold">A</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-[2.5rem] p-6 card-shadow border border-slate-100 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-coral/5 rounded-full -mr-16 -mt-16 z-0"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-[10px] font-bold text-coral uppercase tracking-[0.2em] mb-1 block">Ouro Preto</span>
+<h3 class="text-xl font-bold text-slate-800">Pousada do Ó</h3>
+</div>
+<div class="bg-coral/10 text-coral px-3 py-1 rounded-full text-xs font-bold">
+                            03–08 Mar
+                        </div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-5">
+<div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+<p class="text-[9px] text-slate-400 font-bold uppercase mb-1">Check-in</p>
+<p class="text-sm font-bold text-slate-700">14:00</p>
+</div>
+<div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+<p class="text-[9px] text-slate-400 font-bold uppercase mb-1">Check-out</p>
+<p class="text-sm font-bold text-slate-700">11:00</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-2">
+<span class="material-symbols-rounded text-slate-400 text-lg">map</span>
+<p class="text-xs text-slate-500 leading-relaxed">R. Santa Rita, 13 - Centro Histórico, Ouro Preto - MG</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-50">
+<a class="flex items-center gap-2 text-coral font-bold text-xs bg-coral/5 px-4 py-2 rounded-full" href="#">
+<span class="material-symbols-rounded text-sm">link</span>
+                                Voucher de Reserva
+                            </a>
+<div class="flex -space-x-2">
+<div class="size-7 rounded-full border-2 border-white bg-coral flex items-center justify-center text-[10px] text-white font-bold">M</div>
+<div class="size-7 rounded-full border-2 border-white bg-primary flex items-center justify-center text-[10px] text-white font-bold">A</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-slate-200">
+<span class="material-symbols-rounded">map</span>
+                Ver todas no mapa
+            </button>
+</div>
+<div class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto bg-white/90 backdrop-blur-xl border-t border-slate-100 px-4 pt-2 pb-8 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-rounded">calendar_today</span>
+</div>
+<span class="text-[10px] font-medium">Dias</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="bg-primary/10 text-primary p-2 rounded-xl">
+<span class="material-symbols-rounded">bed</span>
+</div>
+<span class="text-[10px] font-bold text-primary">Hotel</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-rounded">checklist</span>
+</div>
+<span class="text-[10px] font-medium">Tarefas</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-rounded">payments</span>
+</div>
+<span class="text-[10px] font-medium">Grana</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-rounded">luggage</span>
+</div>
+<span class="text-[10px] font-medium">Mala</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-rounded">restaurant</span>
+</div>
+<span class="text-[10px] font-medium">Comida</span>
+</a>
+</div>
+</div>
+
+</body></html>

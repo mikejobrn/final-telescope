@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#fdfcf9",
+                        "background-dark": "#101922",
+                        "coral": "#ff7e67",
+                        "mint": "#50c878",
+                        "sunny": "#ffcc33",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light text-slate-900 font-display">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-background-light shadow-2xl overflow-x-hidden pb-24">
+<!-- Header / Nav -->
+<div class="flex items-center bg-white/80 backdrop-blur-md sticky top-0 z-50 p-4 justify-between border-b border-primary/10">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-slate-900 text-lg font-bold leading-tight tracking-tight flex-1 text-center">Roteiro MG 2026</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 items-center justify-center rounded-full bg-slate-100 text-slate-600">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Hero Section -->
+<div class="p-4">
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-sunny via-primary to-primary/80 p-6 text-white shadow-lg shadow-primary/20" data-alt="Sunny yellow and sky blue gradient background">
+<div class="flex flex-col gap-3">
+<div class="flex">
+<span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold border border-white/30">
+                            🇧🇷 Minas Gerais
+                        </span>
+</div>
+<h1 class="text-3xl font-bold leading-none tracking-tight">Roteiro MG 2026</h1>
+<p class="text-sm font-medium opacity-90 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">group</span> Mike &amp; Alan
+                        <span class="mx-1">•</span>
+<span class="material-symbols-outlined text-sm">calendar_month</span> 1–8 de Março
+                    </p>
+<div class="mt-2 flex justify-between items-end">
+<span class="text-xs font-semibold bg-black/10 px-2 py-1 rounded-md">8 dias de aventura</span>
+<button class="bg-white text-primary px-4 py-2 rounded-full text-sm font-bold shadow-sm hover:scale-105 transition-transform">
+                            Editar Viagem
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- City Tags -->
+<div class="flex gap-3 px-4 py-2 overflow-x-auto hide-scrollbar">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-coral/15 border border-coral/20 px-5 transition-all">
+<p class="text-coral text-sm font-bold">Belo Horizonte</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-mint/15 border border-mint/20 px-5 transition-all">
+<p class="text-mint text-sm font-bold">Inhotim</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/15 border border-primary/20 px-5 transition-all">
+<p class="text-primary text-sm font-bold">Ouro Preto</p>
+</div>
+</div>
+<!-- Legend Section -->
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-slate-900 text-base font-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span> Legenda
+            </h3>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1 bg-white border border-slate-100 rounded-full px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm">🔒 Imperdível</span>
+<span class="flex items-center gap-1 bg-white border border-slate-100 rounded-full px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm">🟡 Flexível</span>
+<span class="flex items-center gap-1 bg-white border border-slate-100 rounded-full px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm">⏰ Horário fixo</span>
+<span class="flex items-center gap-1 bg-white border border-slate-100 rounded-full px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm">🌧️ Chuva</span>
+</div>
+</div>
+<!-- Itinerary -->
+<div class="px-4 py-4 space-y-4">
+<!-- Day 1 (Expanded) -->
+<div class="bg-white rounded-xl p-5 shadow-md border border-slate-50 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<div class="flex justify-between items-center mb-6">
+<div>
+<h4 class="text-primary text-sm font-bold uppercase tracking-wider">Dia 1</h4>
+<h3 class="text-slate-900 text-xl font-bold">Domingo, 01/03</h3>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_less</span>
+</div>
+<!-- Timeline -->
+<div class="space-y-6 relative ml-2">
+<div class="absolute left-[7px] top-2 bottom-2 w-0.5 bg-slate-100"></div>
+<!-- Item 1 -->
+<div class="relative flex gap-4 items-start">
+<div class="mt-1.5 size-4 rounded-full bg-primary ring-4 ring-primary/10 z-10 shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-baseline justify-between">
+<span class="text-primary font-bold text-sm">01:15</span>
+</div>
+<p class="text-slate-800 font-medium">Sair de casa</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative flex gap-4 items-start">
+<div class="mt-1.5 size-4 rounded-full bg-primary ring-4 ring-primary/10 z-10 shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-baseline justify-between">
+<span class="text-primary font-bold text-sm">03:00</span>
+<span class="text-xs">🔒 ⏰</span>
+</div>
+<p class="text-slate-800 font-bold">Voo Natal → Confins</p>
+<p class="text-xs text-slate-500 mt-1">G3 1234 • Portão 12</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="relative flex gap-4 items-start">
+<div class="mt-1.5 size-4 rounded-full bg-primary ring-4 ring-primary/10 z-10 shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-baseline justify-between">
+<span class="text-primary font-bold text-sm">11:30</span>
+<span class="text-xs">🟡</span>
+</div>
+<p class="text-slate-800 font-medium">Feira Hippie</p>
+<p class="text-xs text-slate-500 mt-1 italic">Av. Afonso Pena</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="relative flex gap-4 items-start">
+<div class="mt-1.5 size-4 rounded-full bg-primary ring-4 ring-primary/10 z-10 shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-baseline justify-between">
+<span class="text-primary font-bold text-sm">16:00</span>
+</div>
+<p class="text-slate-800 font-medium">Belô Pães de Queijo</p>
+<p class="text-xs text-slate-500 mt-1">Lanche da tarde obrigatório</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 2 (Collapsed) -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-slate-50 flex justify-between items-center opacity-80">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-mint/10 flex items-center justify-center text-mint font-bold text-xs">D2</div>
+<div>
+<h3 class="text-slate-900 text-base font-bold">Segunda, 02/03</h3>
+<p class="text-slate-500 text-xs font-medium">Inhotim e arredores</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">expand_more</span>
+</div>
+<!-- Day 3 (Collapsed) -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-slate-50 flex justify-between items-center opacity-80">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-coral/10 flex items-center justify-center text-coral font-bold text-xs">D3</div>
+<div>
+<h3 class="text-slate-900 text-base font-bold">Terça, 03/03</h3>
+<p class="text-slate-500 text-xs font-medium">Ouro Preto Histórica</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">expand_more</span>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto bg-white border-t border-slate-100 px-4 pt-2 pb-8 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="bg-primary/10 text-primary p-2 rounded-xl">
+<span class="material-symbols-outlined fill-1">calendar_today</span>
+</div>
+<span class="text-[10px] font-bold text-primary">Dias</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-outlined">bed</span>
+</div>
+<span class="text-[10px] font-medium">Hotel</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-outlined">checklist</span>
+</div>
+<span class="text-[10px] font-medium">Tarefas</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-[10px] font-medium">Grana</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-outlined">luggage</span>
+</div>
+<span class="text-[10px] font-medium">Mala</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="p-2">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<span class="text-[10px] font-medium">Comida</span>
+</a>
+</div>
+</div>
+</body></html>
