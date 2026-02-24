@@ -21,12 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dayCard.querySelectorAll('mg-activity').forEach(activity => {
       const timeStr = activity.getAttribute('time');
-      const actEl = activity.querySelector('.activity');
-
-      if (!actEl) return;
 
       if (isPastDay) {
-        actEl.classList.add('is-past');
+        activity.setAttribute('is-past', '');
       } else if (isToday) {
         // Check time block
         if (timeStr && timeStr.includes(':')) {
@@ -36,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // If the activity time is strictly in the past
           if (today.getTime() >= activityTime.getTime() + 600000) { // Add 10 mins grace margin so it doesn't immediately become gray
-            actEl.classList.add('is-past');
+            activity.setAttribute('is-past', '');
             lastPastMgActivity = activity;
           } else {
             if (!firstUpcomingMgActivity) firstUpcomingMgActivity = activity;
@@ -48,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             // Not sure, treat as past for now if afternoon
             if (today.getHours() > 18) {
-              actEl.classList.add('is-past');
+              activity.setAttribute('is-past', '');
               lastPastMgActivity = activity;
             } else {
               if (!firstUpcomingMgActivity) firstUpcomingMgActivity = activity;
@@ -61,23 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isToday) {
       // Automatically highlight the next upcoming attraction
       if (firstUpcomingMgActivity) {
-        const upcEl = firstUpcomingMgActivity.querySelector('.activity');
-        if (upcEl) upcEl.classList.add('is-active');
-      }
-
-      // Insert horizontal current time line
-      const indicator = document.createElement('div');
-      indicator.className = 'current-time-indicator';
-
-      if (lastPastMgActivity && firstUpcomingMgActivity) {
-        // Insert between the past and upcoming
-        firstUpcomingMgActivity.parentNode.insertBefore(indicator, firstUpcomingMgActivity);
-      } else if (lastPastMgActivity) {
-        // All activities in the past
-        lastPastMgActivity.parentNode.appendChild(indicator);
-      } else if (firstUpcomingMgActivity) {
-        // All activities in the future
-        firstUpcomingMgActivity.parentNode.insertBefore(indicator, firstUpcomingMgActivity);
+        firstUpcomingMgActivity.setAttribute('is-active', '');
       }
 
       // Today FAB & Auto-Open Logic
@@ -88,31 +69,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (fab) {
         fab.style.display = 'block';
-        fab.querySelector('button').addEventListener('click', () => {
+
+        // Ensure clicking FAB switches section and scrolls smoothly
+        const fabBtn = fab.querySelector('button');
+        const fabClone = fabBtn.cloneNode(true);
+        fabBtn.parentNode.replaceChild(fabClone, fabBtn); // Remove any old listeners
+
+        fabClone.addEventListener('click', () => {
           // Switch to days tab
-          const navBtns = document.querySelectorAll('.bn-btn');
-          const sections = document.querySelectorAll('.section');
+          const daysBtn = document.querySelector('mg-bottom-nav').querySelector('[data-target="days"]');
+          if (daysBtn) daysBtn.click();
 
-          navBtns.forEach(b => {
-            b.classList.remove('active');
-            b.querySelector('.bn-icon').style.fontVariationSettings = "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24";
-          });
-          navBtns[0].classList.add('active');
-          navBtns[0].querySelector('.bn-icon').style.fontVariationSettings = "'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24";
-          sections.forEach(s => s.classList.toggle('hidden', s.id !== 'days'));
-
-          // Open today's card
-          const internalCard = dayCard.querySelector('.day-card');
-          document.querySelectorAll('mg-day-card .day-card.open').forEach(c => c.classList.remove('open'));
-          if (internalCard) internalCard.classList.add('open');
-
-          setTimeout(() => dayCard.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+          // Open today's card via triggering its header click
+          const header = dayCard.querySelector('.day-header');
+          const card = dayCard.querySelector('.day-card');
+          if (header && card && !card.classList.contains('open')) {
+            header.click();
+          } else {
+            setTimeout(() => dayCard.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+          }
         });
 
         // Auto-open today
         setTimeout(() => {
-          const internalCard = dayCard.querySelector('.day-card');
-          if (internalCard) internalCard.classList.add('open');
+          const header = dayCard.querySelector('.day-header');
+          const card = dayCard.querySelector('.day-card');
+          if (header && card && !card.classList.contains('open')) {
+            header.click();
+          }
         }, 500);
       }
     }

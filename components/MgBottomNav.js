@@ -1,33 +1,43 @@
 class MgBottomNav extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <nav class="bottom-nav" id="quickNav">
-        <button class="bn-btn active" data-target="days">
-            <span class="material-symbols-rounded bn-icon">calendar_today</span>
-            <span class="bn-label">Dias</span>
-        </button>
-        <button class="bn-btn" data-target="checkins">
-            <span class="material-symbols-rounded bn-icon">bed</span>
-            <span class="bn-label">Hotel</span>
-        </button>
-        <button class="bn-btn" data-target="tasks">
-            <span class="material-symbols-rounded bn-icon">checklist</span>
-            <span class="bn-label">Tarefas</span>
-        </button>
-        <button class="bn-btn" data-target="budget">
-            <span class="material-symbols-rounded bn-icon">payments</span>
-            <span class="bn-label">Grana</span>
-        </button>
-        <button class="bn-btn" data-target="packing">
-            <span class="material-symbols-rounded bn-icon">luggage</span>
-            <span class="bn-label">Mala</span>
-        </button>
-        <button class="bn-btn" data-target="food">
-            <span class="material-symbols-rounded bn-icon">restaurant</span>
-            <span class="bn-label">Comida</span>
-        </button>
-      </nav>
-    `;
+        <div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-white/95 backdrop-blur-xl border-t border-slate-100 px-4 pt-2 pb-8 flex justify-between items-center z-[200]">
+            <a class="bn-btn flex flex-col items-center gap-1 text-slate-400 cursor-pointer w-1/5" data-target="days">
+                <div class="p-2 transition-colors rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-rounded text-xl">calendar_today</span>
+                </div>
+                <span class="text-[10px] font-medium bn-label">Dias</span>
+            </a>
+            
+            <a class="bn-btn flex flex-col items-center gap-1 text-slate-400 cursor-pointer w-1/5" data-target="checkins">
+                <div class="p-2 transition-colors rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-rounded text-xl">bed</span>
+                </div>
+                <span class="text-[10px] font-medium bn-label">Hotel</span>
+            </a>
+            
+            <a class="bn-btn flex flex-col items-center gap-1 text-slate-400 cursor-pointer w-1/5 group" data-target="tasks">
+                <div class="p-2 transition-colors rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-rounded text-xl">checklist</span>
+                </div>
+                <span class="text-[10px] font-medium bn-label">Checklist</span>
+            </a>
+            
+            <a class="bn-btn flex flex-col items-center gap-1 text-slate-400 cursor-pointer w-1/5" data-target="budget">
+                <div class="p-2 transition-colors rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-rounded text-xl">payments</span>
+                </div>
+                <span class="text-[10px] font-medium bn-label">Grana</span>
+            </a>
+            
+            <a class="bn-btn flex flex-col items-center gap-1 text-slate-400 cursor-pointer w-1/5" data-target="food">
+                <div class="p-2 transition-colors rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-rounded text-xl">restaurant</span>
+                </div>
+                <span class="text-[10px] font-medium bn-label">Comida</span>
+            </a>
+        </div>
+        `;
 
         // Add event listeners for navigation logic
         const navBtns = this.querySelectorAll('.bn-btn');
@@ -36,18 +46,40 @@ class MgBottomNav extends HTMLElement {
         navBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const target = btn.dataset.target;
+
                 navBtns.forEach(b => {
                     b.classList.remove('active');
-                    b.querySelector('.bn-icon').style.fontVariationSettings = "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24";
+                    // Reset to inactive state (slate-400, unfilled icon, transparent bg)
+                    b.className = `bn-btn flex flex-col items-center gap-1 text-slate-400 cursor-pointer w-1/5 ${b.classList.contains('group') ? 'group' : ''}`;
+                    const iconBox = b.querySelector('div');
+                    iconBox.className = "p-2 transition-colors rounded-xl flex items-center justify-center text-slate-400";
+                    const icon = b.querySelector('.material-symbols-rounded');
+                    icon.classList.remove('filled');
+                    icon.style.fontVariationSettings = "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24";
+                    b.querySelector('.bn-label').className = "text-[10px] font-medium bn-label";
                 });
+
                 btn.classList.add('active');
-                btn.querySelector('.bn-icon').style.fontVariationSettings = "'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24";
+
+                // Active state (primary color, filled icon, light bg)
+                btn.className = `bn-btn flex flex-col items-center gap-1 text-slate-400 cursor-pointer w-1/5 active ${btn.classList.contains('group') ? 'group' : ''}`;
+                const activeIconBox = btn.querySelector('div');
+                activeIconBox.className = "p-2 transition-colors rounded-xl flex items-center justify-center bg-primary/10 text-primary";
+                const activeIcon = btn.querySelector('.material-symbols-rounded');
+                activeIcon.classList.add('filled');
+                activeIcon.style.fontVariationSettings = "'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24";
+                btn.querySelector('.bn-label').className = "text-[10px] font-bold text-primary bn-label";
+
                 sections.forEach(s => {
                     s.classList.toggle('hidden', s.id !== target);
                 });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
+
+        // Trigger click on first active btn or default to 'days'
+        const initialActive = this.querySelector('.bn-btn[data-target="days"]');
+        if (initialActive) initialActive.click();
     }
 }
 
