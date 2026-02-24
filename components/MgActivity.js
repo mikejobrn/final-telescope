@@ -34,6 +34,11 @@ class MgActivity extends HTMLElement {
         const parentCard = this.closest('mg-day-card');
         const theme = parentCard ? parentCard.getAttribute('theme') : 'primary';
 
+        let activeThemeColor = theme;
+        if (theme && theme.includes('-')) {
+            activeThemeColor = theme.split('-')[0];
+        }
+
         // Define Theme Tokens
         let themeTextColor = 'text-primary';
         let themeBgColorObj = 'bg-primary';
@@ -41,16 +46,15 @@ class MgActivity extends HTMLElement {
         let themeRing = 'ring-primary/20';
         let themeBorder = 'border-primary/10';
         let themeShadow = 'shadow-[0_0_20px_2px_rgba(43,140,238,0.15)]';
-        let themeTimeMarkerObj = 'bg-coral'; // Global standard for "Agora", let's keep it Coral or use theme? The user said: "As cores primárias dos cards do itinerário também devem corresponder à mesma cor" which implies the blue card needs to match the theme!
 
-        if (theme === 'coral') {
+        if (activeThemeColor === 'coral') {
             themeTextColor = 'text-coral';
             themeBgColorObj = 'bg-coral';
             themeCardBg = 'bg-coral/10';
             themeRing = 'ring-coral/20';
             themeBorder = 'border-coral/10';
             themeShadow = 'shadow-[0_0_20px_2px_rgba(255,126,103,0.15)]';
-        } else if (theme === 'mint') {
+        } else if (activeThemeColor === 'mint') {
             themeTextColor = 'text-mint';
             themeBgColorObj = 'bg-mint';
             themeCardBg = 'bg-mint/10';
@@ -67,12 +71,13 @@ class MgActivity extends HTMLElement {
 
             // Active current marker + Active Item
             contentObj = `
-            <div class="relative h-8 -ml-2 mb-2 flex items-center">
-                <div class="absolute left-[-10px] right-[-20px] h-[2px] ${themeBgColorObj} z-20"></div>
-                <div class="absolute left-1/2 -translate-x-1/2 ${themeBgColorObj} text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-sm z-30 flex items-center gap-1">
-                    <span class="material-symbols-rounded text-[12px]">schedule</span> ${formattedTime}
+            <div class="relative h-2 -ml-2 mb-8 mt-2">
+                <div class="absolute left-[-4px] right-[-20px] h-[2px] ${themeBgColorObj} z-20"></div>
+                <div class="absolute left-1/2 -translate-x-1/2 -top-6 ${themeBgColorObj} text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm z-30">
+                    ${formattedTime} Agora
                 </div>
             </div>
+
             
             <div class="relative flex gap-5 items-start">
                 <div class="mt-1 size-4 rounded-full ${themeBgColorObj} ring-4 ${themeRing} z-10 shrink-0"></div>

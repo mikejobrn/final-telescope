@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Roteiro MG 2026 — Mike & Alan</title>
+    <title>Roteiro MG 2026</title>
     <meta name="description" content="Roteiro de viagem para Minas Gerais, 1-8 de Março 2026">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,8 +46,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div id="app" class="has-bottom-nav">
+<body class="bg-slate-100">
+    <div id="app"
+        class="has-bottom-nav max-w-[480px] mx-auto min-h-screen shadow-2xl relative bg-background-light overflow-x-hidden">
         <!-- Header -->
         <mg-hero title="Roteiro MG 2026" subtitle="1–8 de Março">
         </mg-hero>
@@ -59,29 +60,23 @@
         <main class="section" id="days">
             <mg-legend></mg-legend>
 
-            <h2 class="section-title" style="margin-top: 10px;">Testes (Atual)</h2>
-
-            <!-- Mock Day 1 -->
-            <mg-day-card id="mock1" day-num="T1" date="Segunda, 23/02" date-iso="2026-02-23"
-                desc="Teste de dia no passado" is-past theme="primary">
-                <mg-activity time="10:00" desc="Atividade Passada" sub-desc="Como era pra ficar" is-past></mg-activity>
-                <mg-activity time="12:00" desc="Almoço" sub-desc="Test" is-past></mg-activity>
+            <!-- Test Day 1: Past -->
+            <mg-day-card id="day-t1" day-num="T1" date="Segunda, 23/02" date-iso="2026-02-23" desc="Mock Ontem"
+                theme="primary">
+                <mg-activity time="10:00" desc="Atividade Antiga 1"></mg-activity>
+                <mg-activity time="15:00" desc="Atividade Antiga 2"></mg-activity>
             </mg-day-card>
 
-            <!-- Mock Day 2 (TODAY based on 2026-02-24) -->
-            <mg-day-card id="mock2" day-num="T2" date="Terça, 24/02" date-iso="2026-02-24"
-                desc="Teste de dia HOJE (Ativo)" expanded theme="coral">
-                <mg-activity time="00:10" desc="Madrugada 1" tags="🟡" is-past></mg-activity>
-                <mg-activity time="00:15" desc="Madrugada 2" tags="🔒" is-past></mg-activity>
-                <mg-activity time="08:00" desc="Café da manhã" tags="🟡" is-past></mg-activity>
-                <mg-activity time="10:00" desc="Passeio" sub-desc="Já passou hoje" tags="🔒" is-past></mg-activity>
-                <mg-activity time="14:00" desc="Almoço Tarde" sub-desc="Isso tá ativo se a hora for perto" tags="⏰, 🟡"
-                    is-active></mg-activity>
-                <mg-activity time="20:00" desc="Jantar" sub-desc="Isso tá no futuro hoje"></mg-activity>
+            <!-- Test Day 2: Today/Active -->
+            <mg-day-card id="day-t2" day-num="T2" date="Terça, 24/02" date-iso="2026-02-24" desc="Mock Hoje"
+                theme="coral" expanded>
+                <mg-activity time="08:00" desc="Café da Manhã"></mg-activity>
+                <mg-activity time="09:30" desc="Passeio Matinal Teste"></mg-activity>
+                <mg-activity time="14:00" desc="Almoço Teste"></mg-activity>
+                <mg-activity time="18:30" desc="Jantar Teste"></mg-activity>
             </mg-day-card>
 
-            <h2 class="section-title">Itinerário</h2>
-
+            <!-- Itinerary Start -->
             <mg-day-card id="day1" day-num="1" date="Domingo, 01/03" date-iso="2026-03-01" desc="Natal → BH" expanded
                 theme="primary">
                 <mg-activity time="01:15" desc="Sair de casa" sub-desc="Check-in e bagagens"></mg-activity>
@@ -152,7 +147,7 @@
             </mg-day-card>
 
             <mg-day-card id="day5" day-num="5" date="Quinta, 05/03" date-iso="2026-03-05"
-                desc="BH → Inhotim → Ouro Preto" theme="primary">
+                desc="BH → Inhotim → Ouro Preto" theme="primary-coral">
                 <mg-activity time="08:00" desc="Check-out BH"
                     sub-desc="Malas no carro → Brumadinho (~1h)"></mg-activity>
                 <mg-activity time="09:30" desc="Inhotim e arredores" sub-desc="Dia inteiro (qua–dom 9h30–17h30)"
@@ -186,7 +181,7 @@
             </mg-day-card>
 
             <mg-day-card id="day7" day-num="7" date="Sábado, 07/03" date-iso="2026-03-07"
-                desc="OP → Tiradentes, Maria Fumaça" theme="coral">
+                desc="OP → Tiradentes, Maria Fumaça" theme="coral-mint">
                 <mg-activity time="08:00" desc="Check-out Ouro Preto" sub-desc="Malas no carro"></mg-activity>
                 <mg-activity time="~10:30" desc="Chegada em Tiradentes" sub-desc="Check-in na pousada"></mg-activity>
                 <mg-activity time="11:30" desc="Almoço em Tiradentes"

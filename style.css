@@ -251,20 +251,64 @@ mg-activity {
 
 /* ===== TODAY FAB ===== */
 .today-fab {
-  position: fixed;
-  bottom: calc(var(--bottom-nav-h) + 20px);
-  right: 20px;
-  z-index: 100
+  /* Position handled by Tailwind classes in HTML wrapper */
+}
+
+/* Animations for Day Card */
+@keyframes slideDownAlpha {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  to {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.day-card.open .day-view-open {
+  animation: slideDownAlpha 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.day-card.open .day-view-open .timeline-line {
+  animation: slideRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.day-card.open .day-body {
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 .today-fab button {
-  padding: 14px 20px;
+  padding: 10px 16px;
   border-radius: 30px;
   border: none;
   background: var(--accent);
   color: #fff;
   font-family: inherit;
-  font-size: .95rem;
+  font-size: .85rem;
   font-weight: 800;
   cursor: pointer;
   box-shadow: 0 8px 24px var(--accent-glow);
