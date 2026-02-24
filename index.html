@@ -48,7 +48,7 @@
 
 <body class="bg-slate-100">
     <div id="app"
-        class="has-bottom-nav max-w-[480px] mx-auto min-h-screen shadow-2xl relative bg-background-light overflow-x-hidden">
+        class="has-bottom-nav w-full md:max-w-3xl lg:max-w-5xl mx-auto min-h-screen shadow-2xl relative bg-background-light overflow-x-hidden md:px-4 lg:px-8">
         <!-- Header -->
         <mg-hero title="Roteiro MG 2026" subtitle="1–8 de Março">
         </mg-hero>
@@ -57,8 +57,10 @@
         <mg-bottom-nav></mg-bottom-nav>
 
         <!-- DAYS SECTION -->
-        <main class="section" id="days">
-            <mg-legend></mg-legend>
+        <main class="section md:grid md:grid-cols-2 lg:grid-cols-2 md:gap-x-6 lg:gap-x-8 md:items-start" id="days">
+            <div class="col-span-full mb-4">
+                <mg-legend></mg-legend>
+            </div>
 
             <!-- Test Day 1: Past -->
             <mg-day-card id="day-t1" day-num="T1" date="Segunda, 23/02" date-iso="2026-02-23" desc="Mock Ontem"
@@ -477,9 +479,13 @@
         </section>
 
         <!-- Today indicator -->
-        <div class="fixed right-4 z-[90]" id="todayFab" style="display:none; bottom: calc(var(--bottom-nav-h) + 16px);">
-            <button class="w-12 h-12 rounded-full bg-primary text-white shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform" aria-label="Ir para Hoje">
-                <span class="material-symbols-rounded text-2xl">my_location</span>
+        <div class="fixed right-4 md:right-8 lg:right-12 z-[90]" id="todayFab"
+            style="display:none; bottom: calc(var(--bottom-nav-h) + 16px);">
+            <button
+                class="h-12 px-5 rounded-full bg-slate-800 text-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex items-center justify-center gap-2 hover:bg-slate-700 hover:scale-105 active:scale-95 transition-all outline-none focus:ring-4 focus:ring-slate-800/20"
+                aria-label="Ir para Hoje">
+                <span class="material-symbols-rounded text-xl">today</span>
+                <span class="font-bold text-sm tracking-wide">Hoje</span>
             </button>
         </div>
     </div> <!-- END APP -->

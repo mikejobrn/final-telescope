@@ -22,10 +22,16 @@ class MgActivity extends HTMLElement {
         const isPast = this.hasAttribute('is-past');
         const isActive = this.hasAttribute('is-active');
 
-        // Parse tags
         let tagHtml = '';
         if (tags) {
-            tagHtml = `<div class="flex gap-1">` + tags.split(',').map(tag => `<span class="text-[10px]">${tag.trim()}</span>`).join('') + `</div>`;
+            tagHtml = `<div class="flex gap-1 items-center">` + tags.split(',').map(tag => {
+                let trimmed = tag.trim();
+                if (trimmed === '🔒') return `<span class="material-symbols-rounded text-[14px]">lock</span>`;
+                if (trimmed === '🟡') return `<span class="material-symbols-rounded text-[14px] text-yellow-500">radio_button_checked</span>`;
+                if (trimmed === '⏰') return `<span class="material-symbols-rounded text-[14px]">schedule</span>`;
+                if (trimmed === '🌧️') return `<span class="material-symbols-rounded text-[14px]">rainy</span>`;
+                return `<span class="text-[10px]">${trimmed}</span>`;
+            }).join('') + `</div>`;
         } else {
             tagHtml = `<span></span>`; // empty spacer
         }
