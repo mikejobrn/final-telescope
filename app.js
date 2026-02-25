@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (fab) {
         fab.style.display = 'block';
+        fab.dataset.showOnDays = 'true';
 
         // Ensure clicking FAB switches section and scrolls smoothly
         const fabBtn = fab.querySelector('button');
