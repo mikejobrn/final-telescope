@@ -106,8 +106,8 @@ class MgActivity extends HTMLElement {
             // Active current marker + Active Item
             contentObj = `
             <div class="relative h-2 -ml-2 mb-8 mt-2">
-                <div class="absolute left-[-4px] right-[-20px] h-[2px] ${themeBgColorObj} z-20"></div>
-                <div class="absolute left-1/2 -translate-x-1/2 -top-6 ${themeBgColorObj} text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm z-30 current-time-bubble animate-pulse shadow-primary/50">
+                <div class="absolute left-[-4px] right-[-20px] h-[2px] ${themeBgColorObj} z-20 animate-pulse"></div>
+                <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${themeBgColorObj} text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm z-30 current-time-bubble animate-pulse shadow-primary/50">
                     ${formattedTime} Agora
                 </div>
             </div>

@@ -14,7 +14,7 @@ class MgLodgeCard extends HTMLElement {
     const finalMapLink = mapLink !== '#' ? mapLink : `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 
     this.innerHTML = `
-      <div class="lodge-card theme-${theme}">
+      <div class="lodge-card theme-${theme} shadow-md hover:shadow-lg transition-shadow">
         <div class="lodge-card-bg"></div>
         <div class="lodge-header">
           <div>
