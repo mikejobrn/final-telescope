@@ -54,11 +54,11 @@ class MgActivity extends HTMLElement {
         if (tags) {
             tagHtml = `<div class="flex gap-1 items-center">` + tags.split(',').map(tag => {
                 let trimmed = tag.trim();
-                if (trimmed === '🔒') return `<span class="material-symbols-rounded text-[14px]">lock</span>`;
-                if (trimmed === '🟡') return `<span class="material-symbols-rounded text-[14px] text-yellow-500">radio_button_checked</span>`;
-                if (trimmed === '⏰') return `<span class="material-symbols-rounded text-[14px]">schedule</span>`;
-                if (trimmed === '🌧️') return `<span class="material-symbols-rounded text-[14px]">rainy</span>`;
-                return `<span class="text-[10px]">${trimmed}</span>`;
+                if (trimmed === '🔒') return `<span class="material-symbols-rounded text-base">lock</span>`;
+                if (trimmed === '🟡') return `<span class="material-symbols-rounded text-base text-yellow-500">radio_button_checked</span>`;
+                if (trimmed === '⏰') return `<span class="material-symbols-rounded text-base">schedule</span>`;
+                if (trimmed === '🌧️') return `<span class="material-symbols-rounded text-base">rainy</span>`;
+                return `<span class="text-xs font-medium">${trimmed}</span>`;
             }).join('') + `</div>`;
         } else {
             tagHtml = `<span></span>`; // empty spacer
@@ -107,7 +107,7 @@ class MgActivity extends HTMLElement {
             contentObj = `
             <div class="relative h-2 -ml-2 mb-8 mt-2">
                 <div class="absolute left-[-4px] right-[-20px] h-[2px] ${themeBgColorObj} z-20"></div>
-                <div class="absolute left-1/2 -translate-x-1/2 -top-6 ${themeBgColorObj} text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm z-30 current-time-bubble">
+                <div class="absolute left-1/2 -translate-x-1/2 -top-6 ${themeBgColorObj} text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm z-30 current-time-bubble animate-pulse shadow-primary/50">
                     ${formattedTime} Agora
                 </div>
             </div>
@@ -117,14 +117,14 @@ class MgActivity extends HTMLElement {
                 <div class="mt-1 size-4 rounded-full ${themeBgColorObj} ring-4 ${themeRing} z-10 shrink-0"></div>
                 <div class="flex-1 ${themeCardBg} active-glow ${themeShadow} p-4 rounded-2xl -mt-3 border ${themeBorder}">
                     <div class="flex items-center justify-between mb-1">
-                        <span class="${themeTextColor} font-bold text-xs tracking-wider uppercase">Atividade Atual</span>
+                        <span class="${themeTextColor} font-bold text-sm tracking-wider uppercase">Atividade Atual</span>
                         <div class="flex items-center gap-2">
-                             <span class="${themeTextColor} font-bold text-xs">${time}</span>
+                             <span class="${themeTextColor} font-bold text-sm bg-white/50 px-2 py-0.5 rounded-md">${time}</span>
                              ${tagHtml}
                         </div>
                     </div>
-                    <p class="text-slate-900 font-bold text-lg leading-tight mt-2">${desc}</p>
-                    ${subDesc ? `<p class="text-xs ${themeTextColor} opacity-80 mt-1 font-medium flex items-center gap-1">${subDesc}</p>` : ''}
+                    <p class="text-slate-900 font-bold text-xl leading-tight mt-2">${desc}</p>
+                    ${subDesc ? `<p class="text-sm ${themeTextColor} opacity-90 mt-1 font-medium flex items-center gap-1">${subDesc}</p>` : ''}
                 </div>
             </div>`;
         } else if (isPast) {
@@ -136,11 +136,11 @@ class MgActivity extends HTMLElement {
                 </div>
                 <div class="flex-1 pb-4">
                     <div class="flex items-center justify-between mb-1">
-                        <span class="text-slate-500 font-bold text-xs">${time}</span>
+                        <span class="text-slate-500 font-bold text-sm">${time}</span>
                         ${tagHtml}
                     </div>
-                    <p class="text-slate-700 font-bold text-base leading-tight">${desc}</p>
-                    ${subDesc ? `<p class="text-[10px] text-slate-500 italic mt-1">${subDesc}</p>` : ''}
+                    <p class="text-slate-700 font-bold text-lg leading-tight mt-1">${desc}</p>
+                    ${subDesc ? `<p class="text-xs text-slate-500 italic mt-1.5">${subDesc}</p>` : ''}
                 </div>
             </div>`;
         } else {
@@ -150,11 +150,11 @@ class MgActivity extends HTMLElement {
                 <div class="mt-1 size-4 rounded-full border-2 border-slate-200 bg-white z-10 shrink-0"></div>
                 <div class="flex-1 pb-4">
                     <div class="flex items-center justify-between mb-1">
-                        <span class="text-slate-400 font-bold text-xs">${time}</span>
+                        <span class="text-slate-400 font-bold text-sm">${time}</span>
                         ${tagHtml}
                     </div>
-                    <p class="text-slate-700 font-bold text-base">${desc}</p>
-                    ${subDesc ? `<p class="text-[10px] text-slate-400 mt-1">${subDesc}</p>` : ''}
+                    <p class="text-slate-700 font-bold text-lg mt-1">${desc}</p>
+                    ${subDesc ? `<p class="text-xs text-slate-400 mt-1.5">${subDesc}</p>` : ''}
                 </div>
             </div>`;
         }

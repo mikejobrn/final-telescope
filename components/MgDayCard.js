@@ -99,12 +99,12 @@ class MgDayCard extends HTMLElement {
                 </div>
 
                 <!-- "Dia N" Text (Open Only) -->
-                <h4 class="absolute left-[2px] top-0 ${themeTextClass} text-xs uppercase tracking-widest opacity-0 transform -translate-y-2 group-[.open]:opacity-100 group-[.open]:translate-y-0 transition-opacity transition-transform duration-500 pointer-events-none m-0">Dia ${dayNum}</h4>
+                <h4 class="absolute left-[2px] top-0 ${themeTextClass} text-sm uppercase tracking-widest opacity-0 transform -translate-y-2 group-[.open]:opacity-100 group-[.open]:translate-y-0 transition-opacity transition-transform duration-500 pointer-events-none m-0">Dia ${dayNum}</h4>
                 
                 <!-- Text Block (Title / Desc) -->
                 <div class="absolute left-[56px] top-1/2 -translate-y-1/2 group-[.open]:top-[24px] group-[.open]:translate-y-0 group-[.open]:left-[2px] transition-all duration-500">
-                    <h3 class="${isPastDay ? 'text-slate-500' : 'text-slate-900'} text-base group-[.open]:text-2xl font-bold transition-all duration-500 m-0 leading-tight origin-left">${date}</h3>
-                    <p class="text-slate-500 text-xs group-[.open]:text-sm font-medium transition-all duration-500 m-0 mt-0 group-[.open]:mt-1 leading-tight ${isPastDay ? 'grayscale' : ''}">${desc}</p>
+                    <h3 class="${isPastDay ? 'text-slate-500' : 'text-slate-900'} text-base group-[.open]:text-3xl font-bold transition-all duration-500 m-0 leading-tight origin-left">${date}</h3>
+                    <p class="text-slate-500 text-xs group-[.open]:text-base font-medium transition-all duration-500 m-0 mt-0 group-[.open]:mt-1 leading-tight ${isPastDay ? 'grayscale' : ''}">${desc}</p>
                 </div>
 
             </div>
