@@ -26,7 +26,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 17px;
   -webkit-text-size-adjust: 100%
 }
 
@@ -313,6 +313,8 @@ mg-activity {
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .lodge-header {
@@ -322,6 +324,7 @@ mg-activity {
   margin-bottom: 1rem;
   position: relative;
   z-index: 10;
+  gap: 12px;
 }
 
 .lodge-times {

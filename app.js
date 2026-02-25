@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Timeline & Today Logic ===
   const today = new Date();
 
+  let closestCard = null;
+  let minDiff = Infinity;
+  let todayCardToOpen = null;
+
   // Find all activities across all days to set their past/active/future states
   document.querySelectorAll('mg-day-card').forEach(dayCard => {
     const cardDateStr = dayCard.getAttribute('date-iso') || '';
@@ -12,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Example: "2026-02-24"
     const cardDate = new Date(cardDateStr + 'T00:00:00'); // Local time bounds
+
+    const diff = Math.abs(today.getTime() - cardDate.getTime());
+    if (diff < minDiff) {
+      minDiff = diff;
+      closestCard = dayCard;
+    }
 
     const isPastDay = today.getTime() > cardDate.getTime() + 86400000;
     const isToday = today.toDateString() === cardDate.toDateString();
@@ -56,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (isToday) {
+      todayCardToOpen = dayCard;
       // Automatically highlight the next upcoming attraction
       if (firstUpcomingMgActivity) {
         firstUpcomingMgActivity.setAttribute('is-active', '');
@@ -89,18 +100,21 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => dayCard.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
           }
         });
-
-        // Auto-open today
-        setTimeout(() => {
-          const header = dayCard.querySelector('.day-header');
-          const card = dayCard.querySelector('.day-card');
-          if (header && card && !card.classList.contains('open')) {
-            header.click();
-          }
-        }, 500);
       }
     }
   });
+
+  // Auto-open logic after deciding the card
+  setTimeout(() => {
+    const cardObjToOpen = todayCardToOpen || closestCard;
+    if (cardObjToOpen) {
+      const header = cardObjToOpen.querySelector('.day-header');
+      const card = cardObjToOpen.querySelector('.day-card');
+      if (header && card && !card.classList.contains('open')) {
+        header.click();
+      }
+    }
+  }, 500);
 
   // === Persist checkbox state ===
   const checkboxes = document.querySelectorAll('.todo input[type="checkbox"]');

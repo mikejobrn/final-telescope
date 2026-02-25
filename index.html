@@ -71,36 +71,48 @@
 
             <!-- Test Day 2: Today/Active -->
             <mg-day-card id="day-t2" day-num="T2" date="Terça, 24/02" date-iso="2026-02-24" desc="Mock Hoje"
-                theme="coral" expanded>
+                theme="coral">
                 <mg-activity time="07:30" desc="Acordar cedo" sub-desc="Preparar as malas para o dia"></mg-activity>
                 <mg-activity time="08:00" desc="Café da Manhã" sub-desc="Café, pão de queijo e suco"></mg-activity>
-                <mg-activity time="09:30" desc="Passeio Matinal Teste" sub-desc="Caminhada no parque" tags="🟡,🌧️"></mg-activity>
-                <mg-activity time="11:00" desc="Visita ao Museu" sub-desc="Exposição temporária" tags="🔒"></mg-activity>
-                <mg-activity time="12:30" desc="Almoço no Mercado" sub-desc="Pratos típicos regionais" tags="🟡"></mg-activity>
+                <mg-activity time="09:30" desc="Passeio Matinal Teste" sub-desc="Caminhada no parque"
+                    tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="11:00" desc="Visita ao Museu" sub-desc="Exposição temporária"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="12:30" desc="Almoço no Mercado" sub-desc="Pratos típicos regionais"
+                    tags="🟡"></mg-activity>
                 <mg-activity time="14:00" desc="Almoço Teste" sub-desc="Restaurante local"></mg-activity>
                 <mg-activity time="15:30" desc="Tarde Livre" sub-desc="Explorar o bairro"></mg-activity>
                 <mg-activity time="17:00" desc="Happy Hour" sub-desc="Bar na esquina" tags="🟡"></mg-activity>
                 <mg-activity time="18:30" desc="Jantar Teste" sub-desc="Jantar com o grupo"></mg-activity>
-                <mg-activity time="20:30" desc="Passeio Noturno" sub-desc="Praça central iluminada" tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="20:30" desc="Passeio Noturno" sub-desc="Praça central iluminada"
+                    tags="🟡,🌧️"></mg-activity>
             </mg-day-card>
 
             <!-- Test Day 3: Tomorrow -->
             <mg-day-card id="day-t3" day-num="T3" date="Quarta, 25/02" date-iso="2026-02-25" desc="Mock Amanhã"
                 theme="mint">
-                <mg-activity time="08:00" desc="Café da Manhã Especial" sub-desc="Buffet completo no hotel"></mg-activity>
+                <mg-activity time="08:00" desc="Café da Manhã Especial"
+                    sub-desc="Buffet completo no hotel"></mg-activity>
                 <mg-activity time="09:00" desc="Check-out do Hotel" sub-desc="Guardar malas na recepção"></mg-activity>
-                <mg-activity time="10:00" desc="Tour pela Cidade" sub-desc="Roteiro histórico guiado" tags="🔒,⏰"></mg-activity>
-                <mg-activity time="12:00" desc="Almoço no Centro" sub-desc="Restaurante recomendado" tags="🟡"></mg-activity>
-                <mg-activity time="13:30" desc="Sobremesa e Café" sub-desc="Sorveteria artesanal" tags="🟡"></mg-activity>
-                <mg-activity time="14:30" desc="Visita ao Mercado" sub-desc="Artesanato e lembranças" tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="10:00" desc="Tour pela Cidade" sub-desc="Roteiro histórico guiado"
+                    tags="🔒,⏰"></mg-activity>
+                <mg-activity time="12:00" desc="Almoço no Centro" sub-desc="Restaurante recomendado"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="13:30" desc="Sobremesa e Café" sub-desc="Sorveteria artesanal"
+                    tags="🟡"></mg-activity>
+                <mg-activity time="14:30" desc="Visita ao Mercado" sub-desc="Artesanato e lembranças"
+                    tags="🟡,🌧️"></mg-activity>
                 <mg-activity time="16:00" desc="Tempo Livre" sub-desc="Compras ou descanso"></mg-activity>
-                <mg-activity time="17:30" desc="Pôr do Sol no Mirante" sub-desc="Vista panorâmica da cidade" tags="🟡,🌧️"></mg-activity>
-                <mg-activity time="19:00" desc="Jantar de Despedida" sub-desc="Restaurante típico — reservar!" tags="🔒"></mg-activity>
-                <mg-activity time="21:00" desc="Saída para o Aeroporto" sub-desc="~2h de trajeto" tags="⏰"></mg-activity>
+                <mg-activity time="17:30" desc="Pôr do Sol no Mirante" sub-desc="Vista panorâmica da cidade"
+                    tags="🟡,🌧️"></mg-activity>
+                <mg-activity time="19:00" desc="Jantar de Despedida" sub-desc="Restaurante típico — reservar!"
+                    tags="🔒"></mg-activity>
+                <mg-activity time="21:00" desc="Saída para o Aeroporto" sub-desc="~2h de trajeto"
+                    tags="⏰"></mg-activity>
             </mg-day-card>
 
             <!-- Itinerary Start -->
-            <mg-day-card id="day1" day-num="1" date="Domingo, 01/03" date-iso="2026-03-01" desc="Natal → BH" expanded
+            <mg-day-card id="day1" day-num="1" date="Domingo, 01/03" date-iso="2026-03-01" desc="Natal → BH"
                 theme="primary">
                 <mg-activity time="01:15" desc="Sair de casa" sub-desc="Check-in e bagagens"></mg-activity>
                 <mg-activity time="03:00" desc="Voo Natal → Confins" sub-desc="G3 1234 • Latam"
@@ -237,8 +249,12 @@
 
         <!-- CHECKINS SECTION -->
         <section class="section hidden" id="checkins">
-            <h2 class="section-title"><span class="material-symbols-rounded"
-                    style="vertical-align: bottom; font-size: 1.2em; color: var(--accent);">bed</span> Hospedagem</h2>
+            <h2 class="section-title flex items-center gap-3">
+                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-rounded text-xl">bed</span>
+                </div>
+                Hospedagem
+            </h2>
 
             <mg-lodge-card city="Belo Horizonte" hotel="Stop Inn Antonio Carlos" dates="01–05 Mar" checkin="14:00"
                 checkout="12:00" address="Rua Amadeu Quáglia 40, São Cristovão, Belo Horizonte" theme="primary">
@@ -257,9 +273,12 @@
 
         <!-- CHECKLIST (Combined Tasks & Packing) -->
         <section class="section hidden" id="tasks">
-            <h2 class="section-title"><span class="material-symbols-rounded filled"
-                    style="vertical-align: bottom; font-size: 1.2em; color: var(--accent);">assignment_turned_in</span>
-                Checklist</h2>
+            <h2 class="section-title flex items-center gap-3">
+                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-rounded filled text-xl">assignment_turned_in</span>
+                </div>
+                Checklist
+            </h2>
 
             <div class="p-4">
                 <div class="flex p-1 bg-slate-100 rounded-2xl mb-4">
@@ -481,9 +500,12 @@
 
         <!-- FOOD SECTION -->
         <section class="section hidden" id="food">
-            <h2 class="section-title"><span class="material-symbols-rounded"
-                    style="vertical-align: bottom; font-size: 1.2em; color: var(--accent);">restaurant</span>
-                Gastronomia</h2>
+            <h2 class="section-title flex items-center gap-3">
+                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-rounded text-xl">restaurant</span>
+                </div>
+                Gastronomia
+            </h2>
             <div class="info-card">
                 <h3>Comidas que não podem faltar</h3>
                 <ul>

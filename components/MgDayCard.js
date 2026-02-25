@@ -79,8 +79,8 @@ class MgDayCard extends HTMLElement {
             innerBadgeTextClass = "text-slate-500";
         }
 
-        const baseCardClasses = "day-card group bg-white border border-slate-50 relative overflow-hidden transition-all duration-500 mb-5";
-        const stateClasses = isPastDay ? "opacity-60 grayscale" : "shadow-sm hover:shadow-md";
+        const baseCardClasses = "day-card group bg-white border border-slate-200 relative overflow-hidden transition-all duration-500 mb-5";
+        const stateClasses = isPastDay ? "opacity-60 grayscale" : "shadow-md hover:shadow-lg";
 
         this.innerHTML = `
       <div class="${baseCardClasses} ${stateClasses} ${isExpanded ? 'open rounded-2xl shadow-xl' : 'rounded-xl'}" id="card-${cardId}">
