@@ -101,7 +101,7 @@ mg-activity {
 
 /* ===== SECTIONS ===== */
 .section {
-  padding: 0 20px 12px;
+  padding: 20px 20px 12px;
 }
 
 .section.hidden {

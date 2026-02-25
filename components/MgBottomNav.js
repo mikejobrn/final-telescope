@@ -74,6 +74,12 @@ class MgBottomNav extends HTMLElement {
                     s.classList.toggle('hidden', s.id !== target);
                 });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Show Today FAB only on the days (itinerary) section
+                const todayFab = document.getElementById('todayFab');
+                if (todayFab && todayFab.dataset.showOnDays === 'true') {
+                    todayFab.style.display = target === 'days' ? 'block' : 'none';
+                }
             });
         });
 
